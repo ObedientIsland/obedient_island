@@ -1,0 +1,15 @@
+// Place all the styles related to the Scenes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#main_scene {
+  width: 1024px;
+  height: 768px;
+  background-size: cover;
+}
+
+.scene_connector {
+  position: relative;
+  color: yellow;
+  font-weight: bold;
+}

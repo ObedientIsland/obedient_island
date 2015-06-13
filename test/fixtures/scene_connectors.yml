@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  position1_x: 1
+  position1_y: 1
+  position2_x: 1
+  position2_y: 1
+
+two:
+  position1_x: 1
+  position1_y: 1
+  position2_x: 1
+  position2_y: 1
