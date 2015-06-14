@@ -8,12 +8,13 @@ Rails.application.routes.draw do
 
   get '/index', to: 'application#index', as: 'index'
   get '/scene', to: 'application#scene', as: 'render_scene'
-  get '/event', to: 'application#event', as: 'render_event'
+  get '/event_part', to: 'application#event_part', as: 'render_event_part'
 
 
   resources :scenes
   resources :events
   resources :event_parts
+  resources :event_answers
   resources :scene_connectors
 
   # Example of regular route:

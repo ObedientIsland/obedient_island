@@ -6,7 +6,7 @@ module Events
     attr_reader :events
 
     def initialize(scene)
-      @events = scene.events.all
+      @events = scene.events.where(active: true)
     end
 
     # Returns nil of no event was triggered or the scene has no events

@@ -11,12 +11,30 @@ class EventPart < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   def to_view
-    link_to('', action: next_type, controller: :application, "#{next_type}_id": next_id) do
-      content_tag(:div, id: 'main_scene', style:"background-image: url(#{image.url});") do
+    event_answers.exists? ? to_view_with_answers : to_view_without_answers
+  end
+
+  private
+
+    def to_view_with_answers
+      event_part_main_scene_tag do
         Events::EventAnswersDisplay.new(event_answers).call.html_safe +
         Events::EventTextDisplay.new(self).call.html_safe
+      end
+    end
+
+    def to_view_without_answers
+      link_to(send("render_#{next_type}_path", "#{next_type}_id": next_id), remote: true) do
+        event_part_main_scene_tag do
+          Events::EventTextDisplay.new(self).call.html_safe
+        end
       end.html_safe
-    end.html_safe
-  end
+    end
+
+    def event_part_main_scene_tag
+      content_tag(:div, id: 'main_scene', style:"background-image: url(#{image.url});") do
+        yield
+      end.html_safe
+    end
 
 end

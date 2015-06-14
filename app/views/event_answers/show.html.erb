@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Answer:</strong>
+  <%= @event_answer.answer %>
+</p>
+
+<p>
+  <strong>Next type:</strong>
+  <%= @event_answer.next_type %>
+</p>
+
+<p>
+  <strong>Next:</strong>
+  <%= @event_answer.next_id %>
+</p>
+
+<%= link_to 'Edit', edit_event_answer_path(@event_answer) %> |
+<%= link_to 'Back', event_answers_path %>
