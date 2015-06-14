@@ -1,5 +1,10 @@
 module Events
   class EventAnswersDisplay
+    include Rails.application.routes.url_helpers
+    include ActionView::Helpers::UrlHelper
+    include ActionView::Helpers::TagHelper
+    include ActionView::Context
+
     FIRST_ANSWER_POSITION_Y = 400
     ANSWER_GAP = 50
 
@@ -41,7 +46,7 @@ module Events
       def link_path(event_answer)
         {
           action: event_answer.next_type,
-          controller: :scene_controller,
+          controller: :application_controller,
           "#{event_answer.next_type}_id": event_answer.next_id,
           remote: true
         }

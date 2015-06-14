@@ -1,12 +1,20 @@
 Rails.application.routes.draw do
-  get 'scenes/index', to: 'scenes#index', as: 'index'
-  get 'scenes/scene', to: 'scenes#scene', as: 'scene'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'scenes#index'
+  root 'application#index'
+
+  get '/index', to: 'application#index', as: 'index'
+  get '/scene', to: 'application#scene', as: 'render_scene'
+  get '/event', to: 'application#event', as: 'render_event'
+
+
+  resources :scenes
+  resources :events
+  resources :event_parts
+  resources :scene_connectors
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

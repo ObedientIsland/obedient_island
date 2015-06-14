@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 # For storing images in database
 gem 'paperclip', '~> 4.2'
-
+# Twiiter Bootstrap for CSS
+gem "twitter-bootstrap-rails"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use mysql as the database for Active Record

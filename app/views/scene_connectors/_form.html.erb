@@ -1,0 +1,34 @@
+<%= form_for(@scene_connector) do |f| %>
+  <% if @scene_connector.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@scene_connector.errors.count, "error") %> prohibited this scene_connector from being saved:</h2>
+
+      <ul>
+      <% @scene_connector.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :position_x %><br />
+    <%= f.number_field :position_x, within: 1...1025 %>
+  </div>
+  <div class="field">
+    <%= f.label :position_y %><br />
+    <%= f.number_field :position_y, within: 1...769 %>
+  </div>
+  <div class="field">
+    <%= f.label :scene_from %><br />
+    <%= f.select :scene_from_id, options_for_select(@scenes.map{ |s| [s.name, s.id] }) %>
+  </div>
+  <div class="field">
+    <%= f.label :scene_to %><br />
+    <%= f.select :scene_to_id, options_for_select(@scenes.map{ |s| [s.name, s.id] }) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

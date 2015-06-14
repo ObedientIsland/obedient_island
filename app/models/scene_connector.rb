@@ -9,11 +9,11 @@ class SceneConnector < ActiveRecord::Base
 
   class << self
 
-    def create_bidirectional(scene_from, scene_to, options = {})
+    def build_bidirectional(scene_from_id, scene_to_id, options = {})
       raise "You need to specify 'from' and 'to', like: 'from: {position_x: 100, position_y: 150}, " \
             "to: {position_x: 200, position_y: 50}'" unless bidirectional_options_set_correct?(options)
-      [create(options.fetch(:to).merge(scene_from: scene_from, scene_to: scene_to)),
-       create(options.fetch(:from).merge(scene_to: scene_from, scene_from: scene_to))]
+      [new(options.fetch(:to).merge(scene_from_id: scene_from_id, scene_to_id: scene_to_id)),
+       new(options.fetch(:from).merge(scene_to_id: scene_from_id, scene_from_id: scene_to_id))]
     end
 
     private
@@ -28,9 +28,9 @@ class SceneConnector < ActiveRecord::Base
 
   def to_button
     link_to(scene_to.name,
-            scene_path(scene_id: scene_to.id, scene_connector_id: id),
+            render_scene_path(scene_id: scene_to.id, scene_connector_id: id),
             remote: true,
-            class: :scene_connector,
+            class: [:scene_connector, :bordered_box],
             style: "top: #{position_y}px; left: #{position_x}px;")
   end
 

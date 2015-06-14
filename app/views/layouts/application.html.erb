@@ -8,6 +8,14 @@
 </head>
 <body>
 
+<ul class="nav nav-pills">
+  <li role="presentation" class="active"><a href="/">Home</a></li>
+  <li role="presentation"><%= link_to('Scenes', scenes_path) %></li>
+  <li role="presentation"><%= link_to('SceneConnectors', scene_connectors_path) %></li>
+  <li role="presentation"><%= link_to('Events', events_path) %></li>
+  <li role="presentation"><%= link_to('EventParts', event_parts_path) %></li>
+</ul>
+
 <%= yield %>
 
 </body>

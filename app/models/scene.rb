@@ -10,7 +10,7 @@ class Scene < ActiveRecord::Base
   has_many :event_parts, :through => :events
   has_many :event_answers, :through => :event_parts
 
-	has_attached_file :image, :default_url => "/images/missing.png"
+	has_attached_file :image, :styles => {:thumb => "100x100>"}, :default_url => "/images/missing.png"
 	validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   def to_view
