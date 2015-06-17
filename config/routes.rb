@@ -6,16 +6,19 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'application#index'
 
-  get '/index', to: 'application#index', as: 'index'
-  get '/scene', to: 'application#scene', as: 'render_scene'
-  get '/event_part', to: 'application#event_part', as: 'render_event_part'
+  get '/index', to: 'application#index', as: :index
+  get '/scene', to: 'application#scene', as: :render_scene
+  get '/event_part', to: 'application#event_part', as: :render_event_part
 
 
-  resources :scenes
-  resources :events
-  resources :event_parts
-  resources :event_answers
-  resources :scene_connectors
+  scope module: :admin do
+    get '/admin', to: 'scenes#index'
+    resources :scenes
+    resources :events
+    resources :event_parts
+    resources :event_answers
+    resources :scene_connectors
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

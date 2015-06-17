@@ -1,0 +1,39 @@
+<%= form_for(@event_answer) do |f| %>
+  <% if @event_answer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event_answer.errors.count, "errors") %> prohibited this event_answer from being saved:</h2>
+
+      <ul>
+      <% @event_answer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :answer %>
+    <%= f.text_field :answer %>
+  </div>
+  <div class="field">
+    <%= f.label :next_type %>
+    <%= f.text_field :next_type %>
+  </div>
+  <div class="field">
+    <%= f.label :next_id %>
+    <%= f.number_field :next_id %>
+  </div>
+  <div class="field">
+    <%= f.label :event_part_id %>
+    <%= f.select :event_part_id, options_for_select(@event_parts.map{ |s| [s.name, s.id] }) %>
+  </div>
+
+  <div class="actions">
+    <%= link_to_function('Back', 'history.back()', class: :form_back_link) %> |
+    <%= f.submit %>
+  </div>
+<% end %>

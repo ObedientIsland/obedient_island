@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Event Parts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Title</th>
+      <th>Text</th>
+      <th>Next Is Of Type</th>
+      <th>Next Id</th>
+      <th>Image</th>
+      <th>Event Id</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @event_parts.each do |event_part| %>
+      <tr>
+        <td><%= event_part.id %></td>
+        <td><%= event_part.name %></td>
+        <td><%= event_part.title %></td>
+        <td><%= event_part.text %></td>
+        <td><%= event_part.next_type %></td>
+        <td><%= event_part.next_id %></td>
+        <td><%= image_tag event_part.image.url(:thumb) %></td>
+        <td><%= link_to_event(event_part.event_name, event_part.event_id) %></td>
+        <td><%= link_to 'Show', event_part %></td>
+        <td><%= link_to 'Edit', edit_event_part_path(event_part) %></td>
+        <td><%= link_to 'Destroy', event_part, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Event part', new_event_part_path %>

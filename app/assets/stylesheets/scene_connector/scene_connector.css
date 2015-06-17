@@ -1,0 +1,11 @@
+.scene_connector {
+  position: relative;
+  color: orange;
+  font-weight: bold;
+}
+
+.scene_connector a {
+  position: relative;
+  color: orange;
+  font-weight: bold;
+}

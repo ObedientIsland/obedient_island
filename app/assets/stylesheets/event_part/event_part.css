@@ -1,0 +1,10 @@
+.event_part_text_box {
+  position: relative;
+  height: 268px;
+  font-weight: bold;
+}
+
+.text_box_title {
+  position: relative;
+  top: -20px;
+}

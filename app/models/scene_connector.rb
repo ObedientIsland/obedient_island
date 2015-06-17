@@ -4,8 +4,14 @@ class SceneConnector < ActiveRecord::Base
   include ActionView::Helpers::TagHelper
   include ActionView::Context
 
-  belongs_to :scene_from, :class_name => :Scene
-  belongs_to :scene_to, :class_name => :Scene
+  belongs_to :scene_from, class_name: :Scene
+  belongs_to :scene_to, class_name: :Scene
+
+  validates :position_x, presence: true, inclusion: 1..1024
+  validates :position_y, presence: true, inclusion: 1..768
+
+  delegate :name, to: :scene_from, prefix: true
+  delegate :name, to: :scene_to, prefix: true
 
   class << self
 
@@ -30,7 +36,7 @@ class SceneConnector < ActiveRecord::Base
     link_to(scene_to.name,
             render_scene_path(scene_id: scene_to.id, scene_connector_id: id),
             remote: true,
-            class: [:scene_connector, :bordered_box],
+            class: [:scene_connector, :bordered_box_black],
             style: "top: #{position_y}px; left: #{position_x}px;")
   end
 

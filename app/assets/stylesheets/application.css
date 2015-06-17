@@ -10,54 +10,11 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= defaults
  *= require_tree .
- *= scenes
  *= require_self
  */
 
-a, u, a:hover {
-  text-decoration: none;
-}
 
-h1 {
-  font-weight: bold;
-  color: yellow;
-}
 
-#main_scene {
-  width: 1024px;
-  height: 768px;
-  background-size: cover;
-}
 
-.scene_connector {
-  position: relative;
-  color: yellow;
-  font-weight: bold;
-}
-
-.scene_connector a{
-  position: relative;
-  color: yellow;
-  font-weight: bold;
-}
-
-.event_part_text_box {
-  position: relative;
-  top: 500px;
-  height: 268px;
-}
-
-.text_box_title {
-  position: relative;
-  top: -20px;
-}
-
-.bordered_box {
-  color: yellow;
-  border-radius: 2px 2px 2px 2px;
-  -moz-border-radius: 2px 2px 2px 2px;
-  -webkit-border-radius: 2px 2px 2px 2px;
-  border: 2px solid #000000;
-  background-color: rgba(0, 0, 0, 0.4);
-}

@@ -1,0 +1,42 @@
+body {
+  background-color: black;
+  color: orange;
+}
+
+a, u, a:hover, a:focus {
+  text-decoration: none;
+  color: orange;
+}
+
+a:hover {
+  color: #f0ad4e;
+}
+
+h1 {
+  font-weight: bold;
+  color: orange;
+}
+
+table, th, td {
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  background-color: #555;
+  text-align: center;
+}
+
+td {
+  background-color: #777;
+  padding: 0px 10px;
+  text-align: left;
+}
+
+select, input {
+  color: black;
+}

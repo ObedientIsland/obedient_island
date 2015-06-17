@@ -3,8 +3,8 @@ module Events
     include ActionView::Helpers::TagHelper
     include ActionView::Context
 
-    FIRST_ANSWER_POSITION_Y = 400
-    ANSWER_GAP = 50
+    FIRST_ANSWER_POSITION_Y = 200
+    ANSWER_GAP = 20
 
     attr_reader :event_answers
 
@@ -30,15 +30,16 @@ module Events
       end
 
       def event_answer_link(event_answer, position_y)
-        event_answer.to_link(link_html_options(position_y)) do
-          event_answer.answer
+        event_answer.to_link(link_html_options) do
+          content_tag(:div, class: [:bordered_box_black], style: "top: #{position_y}px; position: relative;") do
+            event_answer.answer
+          end
         end
       end
 
-      def link_html_options(position_y)
+      def link_html_options
         {
           class: :event_answer_link,
-          style: "top: #{position_y}px;",
           remote: true
         }
       end

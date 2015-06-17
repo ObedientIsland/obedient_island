@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ObedientIsland</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="container">
+  <ul class="nav nav-pills">
+    <li role="presentation">
+      <div class='bordered_box_gray'>
+        <a href="/index">
+          <h3 id='admin_back_to_game_header'>
+            Back To Game
+          </h3>
+        </a>
+      </div>
+    </li>
+
+    <li role="presentation" class=<%='active' if params[:controller] == 'admin/scenes'%>>
+      <%= link_to('Scenes', scenes_path) %>
+    </li>
+
+    <li role="presentation" class=<%='active'if params[:controller] == 'admin/scene_connectors'%>>
+      <%= link_to('Scene Connectors', scene_connectors_path) %>
+    </li>
+
+    <li role="presentation" class=<%='active'if params[:controller] == 'admin/events'%>>
+      <%= link_to('Events', events_path) %>
+    </li>
+
+    <li role="presentation" class=<%='active'if params[:controller] == 'admin/event_parts'%>>
+      <%= link_to('Event Parts', event_parts_path) %>
+    </li>
+
+    <li role="presentation" class=<%='active'if params[:controller] == 'admin/event_answers'%>>
+      <%= link_to('Event Answers', event_answers_path) %>
+    </li>
+  </ul>
+
+  <%= yield %>
+</div>
+</body>
+</html>

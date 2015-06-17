@@ -51,5 +51,8 @@ group :development, :test do
 
   # Debugger
   gem 'pry-rails'
+
+  # For showing n + 1 queries
+  gem 'bullet'
 end
 

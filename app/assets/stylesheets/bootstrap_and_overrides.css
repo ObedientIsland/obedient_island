@@ -5,3 +5,17 @@
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
   */
+
+  .nav > li > a:hover, .nav > li > a:focus {
+    background-color: orange;
+    color: black;
+  }
+
+  .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    background-color: orange;
+    color: black;
+  }
+
+  input[type="file"] {
+    display: inline;
+  }

@@ -7,17 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container">
 
-<ul class="nav nav-pills">
-  <li role="presentation" class="active"><a href="/">Home</a></li>
-  <li role="presentation"><%= link_to('Scenes', scenes_path) %></li>
-  <li role="presentation"><%= link_to('SceneConnectors', scene_connectors_path) %></li>
-  <li role="presentation"><%= link_to('Events', events_path) %></li>
-  <li role="presentation"><%= link_to('EventParts', event_parts_path) %></li>
-  <li role="presentation"><%= link_to('EventAnswers', event_answers_path) %></li>
-</ul>
+  <div class="row">
+    <a href="/">
+      <div class="bordered_box_gray col-md-3" >
+        <h1 id="main_header">Obedient Island</h1>
+      </div>
+    </a>
+  </div>
 
-<%= yield %>
+  <div class="row">
+    <%= yield %>
+  </div>
 
+</div>
 </body>
 </html>

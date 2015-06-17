@@ -1,0 +1,12 @@
+.event_answer_link {
+  position: relative;
+}
+
+.event_answer_box {
+  position: relative;
+  height: 500px;
+  width: 200px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}

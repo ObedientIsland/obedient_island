@@ -5,6 +5,7 @@ class EventAnswer < ActiveRecord::Base
 
   belongs_to :event_part
 
+  validates :name, :answer, :next_type, :next_id, presence: true
 
   def to_link(html_options = {})
     link_to(send("render_#{next_type}_path", "#{next_type}_id": next_id), html_options) do
